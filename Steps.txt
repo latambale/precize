@@ -1,0 +1,77 @@
+Assignment: Docker Container for Generating Hugging Face Model Reports
+
+Objective
+The goal of this assignment is to create a Docker container that periodically generates reports by fetching data from the Hugging Face model hub, compiling a list of the top 10 downloaded models, and then stopping the container. The report should be saved to a specified directory on the host machine.
+
+--------------------------------------------------------------------------
+
+Steps to Achieve the Objective
+Step 1: Create a Bash Script to Generate the Report
+First, I created a Bash script named generate_report.sh that performs the following tasks:
+
+Creates a directory to store the reports.
+Fetches data from the Hugging Face API.
+Uses jq to parse the JSON response and extract the top 10 models based on downloads.
+Saves the report in JSON format with a timestamp in the filename.
+
+--------------------------------------------------------------------------
+
+Step 2: Create a Dockerfile
+Next, I created a Dockerfile to set up the Docker container environment. The Dockerfile uses a lightweight Alpine image and installs curl and jq, which are required by the Bash script.
+
+--------------------------------------------------------------------------
+
+Step 3: Build the Docker Image
+I then built the Docker image using the following command:
+
+** Build the Docker image
+
+>> docker build -t huggingface-report-generator .
+
+This command builds the Docker image and tags it as huggingface-report-generator.
+
+--------------------------------------------------------------------------
+
+Step 4: Run the Docker Container with Volume Mapping
+
+To ensure that the generated reports are accessible on the host machine after the container stops, I used Docker volume mapping. The following command runs the Docker container and maps the reports directory on the host machine to the /reports directory inside the container:
+
+>> docker run --rm -v C:/Users/Saurabh/k8s/reports:/reports huggingface-report-generator
+
+This command runs the container, generates the report, and saves it to the reports directory in the current working directory on the host machine.
+
+Setting Up a Cron Job for Periodic Execution
+
+To automate the process of running the Docker container periodically, I set up a cron job. This cron job runs the container daily at midnight and ensures that the reports are generated and saved to the specified directory on the host machine.
+
+Here is how I set up the cron job:
+
+Opened the crontab editor by running:
+
+>> crontab -e
+
+Added the following line to schedule the container to run daily at midnight and save the reports to C:/Users/Saurabh/k8s/bash/reports:
+
+>> 0 0 * * * docker run --rm -v C:/Users/Saurabh/k8s/bash/reports:/reports huggingface-report-generator
+
+--------------------------------------------------------------------------
+
+Step 5: Pushing Docker Image n Docker Repository:
+
+To store the docker image on docker repository I followed below step:
+
+Created docker a new public repository to store the docker images,
+
+>> saurabhlatambale/precize
+
+Tagged docker image to the repository,
+
+>> docker tag huggingface-report-generator saurabhlatambale/precize
+
+Pushed the image into repository,
+
+>> docker push saurabhlatambale/precize
+
+Image available at:
+
+https://hub.docker.com/layers/saurabhlatambale/precize/latest/images/sha256-ec617dc259268c2e55b98b0b1e842c4f84d3d15de7920528b65d4e0ae20a7c38?context=repo

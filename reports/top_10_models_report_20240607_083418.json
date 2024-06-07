@@ -1,0 +1,66 @@
+[
+  {
+    "models": [
+      {
+        "Model ID": "MIT/ast-finetuned-audioset-10-10-0.4593",
+        "Downloads": 523957253,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "google-bert/bert-base-uncased",
+        "Downloads": 61886790,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "openai/clip-vit-large-patch14",
+        "Downloads": 45689576,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "sentence-transformers/all-MiniLM-L6-v2",
+        "Downloads": 32025916,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "laion/CLIP-ViT-B-32-laion2B-s34B-b79K",
+        "Downloads": 29493699,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "distilbert/distilbert-base-uncased",
+        "Downloads": 21089279,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "jonatasgrosman/wav2vec2-large-xlsr-53-english",
+        "Downloads": 20993632,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "openai/clip-vit-base-patch32",
+        "Downloads": 16793115,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "sentence-transformers/all-mpnet-base-v2",
+        "Downloads": 16136503,
+        "Author": null,
+        "Last Modified": null
+      },
+      {
+        "Model ID": "openai/clip-vit-base-patch16",
+        "Downloads": 14244350,
+        "Author": null,
+        "Last Modified": null
+      }
+    ]
+  }
+]
